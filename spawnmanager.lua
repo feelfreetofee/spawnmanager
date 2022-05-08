@@ -21,9 +21,6 @@ function spawnPlayer(spawnIdx)
             end
         end
 
-        -- freeze the local player
-        freezePlayer(PlayerId(), true)
-
         -- if the spawn has a model set
         RequestModel(spawn.model)
 
@@ -72,9 +69,6 @@ function spawnPlayer(spawnIdx)
                 Citizen.Wait(0)
             end
         end
-
-        -- and unfreeze the player
-        freezePlayer(PlayerId(), false)
 
         TriggerEvent('playerSpawned', spawn)
 
