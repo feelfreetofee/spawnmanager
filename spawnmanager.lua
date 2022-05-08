@@ -1,5 +1,5 @@
 -- spawns the current player at a certain spawn point index (or a random one, for that matter)
-function spawnPlayer(spawnIdx)
+function spawnPlayer(spawnIdx, cb)
 
     Citizen.CreateThread(function()
         -- get the spawn from the array
@@ -71,6 +71,10 @@ function spawnPlayer(spawnIdx)
         end
 
         TriggerEvent('playerSpawned', spawn)
+		
+		if cb then
+            cb(spawn)
+        end
 
     end)
 end
